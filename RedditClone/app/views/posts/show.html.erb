@@ -1,0 +1,18 @@
+<h1><%=@post.title%> By <%=@post.author.username%></h1>
+
+<h2><%=@post.url%></h2>
+
+<h2><%=@post.content%></h2>
+
+<% if @post.author.id == current_user.id%>
+
+  <a href="<%=edit_post_url(@post)%>">Edit Post</a>
+  <form action="<%=post_url(@post)%>" method="Post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="submit" value="Delete Post">
+  </form>
+
+<%end%>
+
+<a href="<%=new_post_comment_url(@post)%>">Make a Comment</a>

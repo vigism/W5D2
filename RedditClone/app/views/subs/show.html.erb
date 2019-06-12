@@ -1,0 +1,22 @@
+<h1><%=@sub.title.capitalize%> Sub</h1>
+
+<h2>Description</h2>
+<p>
+<%=@sub.description%>
+</p>
+
+<a href="<%=edit_sub_url(@sub)%>">Edit Link</a>
+<br>
+<br>
+<br>
+
+<a href="<%=new_sub_post_url(@sub)%>">Make new post</a>
+<br>
+
+<br>
+
+<h2>Posts</h2>
+<%@sub.posts.each do |post|%>
+  <a href="<%=post_url(post.id)%>"><%=post.title%></a>
+  <br>
+<%end%>
